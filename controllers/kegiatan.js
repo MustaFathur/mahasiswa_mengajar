@@ -4,8 +4,14 @@ const path = require("path");
 const fs = require("fs");
 const moment = require("moment");
 
-const uploadDir = "uploads";
 
+const makeUpload = "./uploads";
+
+if (!fs.existsSync(makeUpload)) {
+    fs.mkdirSync(makeUpload);
+  }
+
+const uploadDir = "uploads";
 // Multer configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
