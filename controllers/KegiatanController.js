@@ -1,11 +1,15 @@
 
+const { where } = require('sequelize');
 const { Kegiatan, Umum, Pendaftaran} = require('../models')
 
 
 const getKegiatan = async (req, res) => {
     try {
-        const kegiatanList = await Kegiatan.findAll();
-        res.render('Mahasiswa/home', {
+        const kegiatanList = await Kegiatan.findAll({
+            where: {
+              status: 'diterima'
+            }
+          });        res.render('Mahasiswa/home', {
             kegiatanList,
             title: 'home'
         });
