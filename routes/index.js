@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { getKegiatan } = require('../controllers/KegiatanController');
+const { getKegiatan , detailKegiatan,daftarKegiatan} = require('../controllers/KegiatanController');
 
 /* GET home page. */
 
@@ -10,5 +10,8 @@ router.get('/', function(req, res, next) {
   });
   
 router.get('/home', getKegiatan);
+
+router.get('/kegiatan/:id', detailKegiatan);
+router.get('/kegiatan/:id/lamar', daftarKegiatan);
   
 module.exports = router;
