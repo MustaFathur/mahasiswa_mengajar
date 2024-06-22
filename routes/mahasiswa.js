@@ -14,7 +14,10 @@ router.get('/', requireAuth, function(req, res, next) {
 router.get('/kegiatan', kegiatanController.view);
 router.get('/kegiatan/add', kegiatanController.add);
 router.post('/kegiatan/store', kegiatanController.store);
-router.get('/kegiatan/delete/:id', kegiatanController.delete);
+// router.post('/kegiatan/pembayaran', kegiatanController.pembayaran);
+router.post('/kegiatan/pembayaran/proses', kegiatanController.prosesPembayaran);
+router.get('/kegiatan/delete/:id', kegiatanController.deleteEvent);
+router.get('/kegiatan/detail/:id', kegiatanController.detail);
 
 
 
